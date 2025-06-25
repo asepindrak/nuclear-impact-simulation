@@ -28,7 +28,7 @@
         left: 50%;
         width: 30px;
         height: 30px;
-        border: 2px solid red;
+        /* border: 2px solid red; */
         border-radius: 50%;
         transform: translate(-50%, -50%);
         pointer-events: none;
@@ -99,20 +99,26 @@
         box-sizing: border-box;
       }
 
-      #form-container button[type="submit"] {
-        padding: 12px;
-        background-color: #007bff;
+      .nuke-button {
+        background-color: #ff4d4d;
+        /* merah terang */
         color: white;
         border: none;
-        font-weight: bold;
+        padding: 12px 24px;
         font-size: 16px;
+        font-weight: bold;
         border-radius: 8px;
         cursor: pointer;
-        transition: 0.3s;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+        box-shadow: 0 4px 10px rgba(255, 77, 77, 0.4);
       }
 
-      #form-container button[type="submit"]:hover {
-        background-color: #0056b3;
+      .nuke-button:hover {
+        background-color: #cc0000;
+      }
+
+      .nuke-button:active {
+        transform: scale(0.96);
       }
     </style>
   </head>
@@ -123,14 +129,14 @@
       <div class="crosshair"></div>
 
       <!-- Tombol Simulasikan -->
-      <button id="open-form-btn">Simulasikan</button>
+      <button id="open-form-btn">☢️ Simulasikan</button>
 
       <!-- Form Modal -->
       <div id="form-container">
         <form id="form">
           <label for="kg">Masukkan jumlah uranium (kg):</label>
           <input type="number" id="kg" placeholder="Contoh: 1" required />
-          <button type="submit">Kirim</button>
+          <button type="submit" class="nuke-button">☢️ Kirim</button>
         </form>
       </div>
     </div>

@@ -79,16 +79,23 @@ form.addEventListener('submit', async (e) => {
 
     // === Tambahkan popup info lengkap ===
     const popupContent = `
-      <b>Simulasi Ledakan Nuklir | mode simulasi maksimal (100% Energi) E=mc²</b><br><br>
-      <b>Uranium:</b> ${result.input.jumlah_kg_uranium} kg<br>
+      <b>☢️ Simulasi Ledakan Nuklir</b><br>
+      <small><i>Mode: Simulasi Maksimal (100% Efisiensi)</i></small><br><br>
+
+      <b>Uranium-235:</b> ${result.input.jumlah_kg_uranium_235} kg<br>
       <b>Energi:</b> ${result.energi_joule.toExponential(2)} joule<br>
       <b>Daya Ledak:</b> ${result.kiloton_tnt} kiloton TNT<br><br>
 
-      <b>Bola Api</b>: ${data.bola_api.radius_m} m radius (~${data.bola_api.area_m2.toLocaleString()} m²)<br>
-      <b>Kerusakan Berat</b>: ${data.kerusakan_total.radius_m} m (~${data.kerusakan_total.area_m2.toLocaleString()} m²)<br>
-      <b>Kerusakan Ringan</b>: ${data.kerusakan_ringan.radius_m} m (~${data.kerusakan_ringan.area_m2.toLocaleString()} m²)<br>
-      <b>Zona Radiasi</b>: ${data.radiasi_berbahaya.radius_m} m (~${data.radiasi_berbahaya.area_m2.toLocaleString()} m²)<br>
+      <b>🔩 Estimasi Bahan Mentah</b><br>
+      Uranium alam dibutuhkan: <b>${result.uranium_alam.dibutuhkan_kg.toLocaleString()} kg</b><br>
+      Perkiraan Harga: <b>Rp ${result.uranium_alam.estimasi_harga.idr.total_min.toLocaleString()} – Rp ${result.uranium_alam.estimasi_harga.idr.total_max.toLocaleString()}</b><br><br>
+
+      <b>🔥 Bola Api</b>: ${data.bola_api.radius_m} m radius (~${data.bola_api.area_m2.toLocaleString()} m²)<br>
+      <b>🏚️ Kerusakan Berat</b>: ${data.kerusakan_total.radius_m} m (~${data.kerusakan_total.area_m2.toLocaleString()} m²)<br>
+      <b>🏘️ Kerusakan Ringan</b>: ${data.kerusakan_ringan.radius_m} m (~${data.kerusakan_ringan.area_m2.toLocaleString()} m²)<br>
+      <b>☢️ Zona Radiasi</b>: ${data.radiasi_berbahaya.radius_m} m (~${data.radiasi_berbahaya.area_m2.toLocaleString()} m²)<br>
     `
+
 
     const infoPopup = L.popup()
       .setLatLng(center)
